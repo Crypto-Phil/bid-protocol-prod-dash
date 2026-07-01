@@ -59,7 +59,7 @@ async function build() {
     const totalPnl = acctPnl.reduce((s, p) => s + parseInt(p.total_pnl), 0);
     const totalShare = acctPnl.reduce((s, p) => s + parseInt(p.total_share || 0), 0);
     const startBalance = deposits - withdrawals;
-    const currentBalance = startBalance + totalPnl + totalShare;
+    const currentBalance = startBalance + totalPnl;
 
     const agentsWithMeta = acctPnl.map(p => {
       const agentMeta = acctAgents.find(a => a.address === p.agent_address);

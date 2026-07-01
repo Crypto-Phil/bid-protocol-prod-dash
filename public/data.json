@@ -2,19 +2,19 @@
   "MasterOfTheGame": {
     "wallet": "0x5eF2bf29B6BeC2A4F703aF938dDaC5E22dd9447A",
     "start_balance": 285000000,
-    "current_balance": 486867319,
-    "total_pnl": 196989519,
-    "total_share": 4877800,
+    "current_balance": 481770556,
+    "total_pnl": 196770556,
+    "total_share": 4894793,
     "agents": [
       {
         "agent_address": "0x8f9266cfdff047107ac32fd911b2f12a21c88d72",
         "agent_name": "Player1",
-        "total_pnl": "89976629",
-        "total_share": "1007727",
-        "battles": "161",
-        "wins": "82",
-        "losses": "79",
-        "total_bankroll": "805000000",
+        "total_pnl": "91231229",
+        "total_share": "1010853",
+        "battles": "164",
+        "wins": "84",
+        "losses": "80",
+        "total_bankroll": "820000000",
         "avg_bankroll": 5000000,
         "address": "0x8f9266cfdff047107ac32fd911b2f12a21c88d72",
         "battle_limit_usdc": 5
@@ -22,12 +22,12 @@
       {
         "agent_address": "0xbca7d5f3c1353c779bb8bb20ea408a131191527d",
         "agent_name": "Dan-CoinB",
-        "total_pnl": "27455869",
+        "total_pnl": "26119915",
         "total_share": "163061",
-        "battles": "163",
+        "battles": "166",
         "wins": "83",
-        "losses": "80",
-        "total_bankroll": "163000000",
+        "losses": "83",
+        "total_bankroll": "166000000",
         "avg_bankroll": 1000000,
         "address": "0xbca7d5f3c1353c779bb8bb20ea408a131191527d",
         "battle_limit_usdc": 1
@@ -35,12 +35,12 @@
       {
         "agent_address": "0x693e4d32e5caae7090ce0d72e0e2e31489aa7faa",
         "agent_name": "THE-BLACK-BULL",
-        "total_pnl": "79557021",
-        "total_share": "3707012",
-        "battles": "160",
-        "wins": "82",
-        "losses": "78",
-        "total_bankroll": "1600000000",
+        "total_pnl": "79419412",
+        "total_share": "3720879",
+        "battles": "163",
+        "wins": "83",
+        "losses": "80",
+        "total_bankroll": "1630000000",
         "avg_bankroll": 10000000,
         "address": "0x693e4d32e5caae7090ce0d72e0e2e31489aa7faa",
         "battle_limit_usdc": 10
@@ -50,7 +50,7 @@
   "MrKrabs": {
     "wallet": "0xFAc19fC789761642C237900541e3b272b471BD31",
     "start_balance": 300000000,
-    "current_balance": 21689350,
+    "current_balance": 504945,
     "total_pnl": -299495055,
     "total_share": 21184405,
     "agents": [
@@ -121,5 +121,5 @@
       }
     ]
   },
-  "_built_at": "2026-07-01T10:37:31.030Z"
+  "_built_at": "2026-07-01T10:42:21.214Z"
 }

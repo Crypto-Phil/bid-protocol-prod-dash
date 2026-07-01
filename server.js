@@ -73,7 +73,7 @@ app.get('/api/data', async (req, res) => {
       const totalPnl = acctPnl.reduce((s, p) => s + parseInt(p.total_pnl), 0);
       const totalShare = acctPnl.reduce((s, p) => s + parseInt(p.total_share || 0), 0);
       const startBalance = deposits - withdrawals;
-      const currentBalance = startBalance + totalPnl + totalShare;
+      const currentBalance = startBalance + totalPnl;
 
       result[name] = {
         wallet: info.wallet,
