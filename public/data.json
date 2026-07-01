@@ -1,0 +1,125 @@
+{
+  "MasterOfTheGame": {
+    "wallet": "0x5eF2bf29B6BeC2A4F703aF938dDaC5E22dd9447A",
+    "start_balance": 285000000,
+    "current_balance": 486867319,
+    "total_pnl": 196989519,
+    "total_share": 4877800,
+    "agents": [
+      {
+        "agent_address": "0x8f9266cfdff047107ac32fd911b2f12a21c88d72",
+        "agent_name": "Player1",
+        "total_pnl": "89976629",
+        "total_share": "1007727",
+        "battles": "161",
+        "wins": "82",
+        "losses": "79",
+        "total_bankroll": "805000000",
+        "avg_bankroll": 5000000,
+        "address": "0x8f9266cfdff047107ac32fd911b2f12a21c88d72",
+        "battle_limit_usdc": 5
+      },
+      {
+        "agent_address": "0xbca7d5f3c1353c779bb8bb20ea408a131191527d",
+        "agent_name": "Dan-CoinB",
+        "total_pnl": "27455869",
+        "total_share": "163061",
+        "battles": "163",
+        "wins": "83",
+        "losses": "80",
+        "total_bankroll": "163000000",
+        "avg_bankroll": 1000000,
+        "address": "0xbca7d5f3c1353c779bb8bb20ea408a131191527d",
+        "battle_limit_usdc": 1
+      },
+      {
+        "agent_address": "0x693e4d32e5caae7090ce0d72e0e2e31489aa7faa",
+        "agent_name": "THE-BLACK-BULL",
+        "total_pnl": "79557021",
+        "total_share": "3707012",
+        "battles": "160",
+        "wins": "82",
+        "losses": "78",
+        "total_bankroll": "1600000000",
+        "avg_bankroll": 10000000,
+        "address": "0x693e4d32e5caae7090ce0d72e0e2e31489aa7faa",
+        "battle_limit_usdc": 10
+      }
+    ]
+  },
+  "MrKrabs": {
+    "wallet": "0xFAc19fC789761642C237900541e3b272b471BD31",
+    "start_balance": 300000000,
+    "current_balance": 21689350,
+    "total_pnl": -299495055,
+    "total_share": 21184405,
+    "agents": [
+      {
+        "agent_address": "0x7693ffae661ded2cb8ff9d139d465fe175dc3eea",
+        "agent_name": "brrrrr",
+        "total_pnl": "-134197945",
+        "total_share": "2317629",
+        "battles": "99",
+        "wins": "44",
+        "losses": "55",
+        "total_bankroll": "2457135217",
+        "avg_bankroll": 24819548,
+        "address": "0x7693ffae661ded2cb8ff9d139d465fe175dc3eea",
+        "battle_limit_usdc": 25
+      },
+      {
+        "agent_address": "0xb6c447a00a98346e607b52a6e7ada020243e7ce9",
+        "agent_name": "KRABS",
+        "total_pnl": "14277181",
+        "total_share": "2241813",
+        "battles": "111",
+        "wins": "54",
+        "losses": "57",
+        "total_bankroll": "1038968142",
+        "avg_bankroll": 9360073,
+        "address": "0xb6c447a00a98346e607b52a6e7ada020243e7ce9",
+        "battle_limit_usdc": 1
+      },
+      {
+        "agent_address": "0x5fd3b61a5a94c8ed0f0a7aa4940e614269ac34fb",
+        "agent_name": "DO-NO-REDEEM-IT",
+        "total_pnl": "-36666068",
+        "total_share": "4724867",
+        "battles": "98",
+        "wins": "42",
+        "losses": "56",
+        "total_bankroll": "1469854723",
+        "avg_bankroll": 14998518,
+        "address": "0x5fd3b61a5a94c8ed0f0a7aa4940e614269ac34fb",
+        "battle_limit_usdc": 15
+      },
+      {
+        "agent_address": "0x11b27367a97b59d872ee17ca9fbbf94bccd07883",
+        "agent_name": "HeSold",
+        "total_pnl": "-17137169",
+        "total_share": "1820166",
+        "battles": "109",
+        "wins": "46",
+        "losses": "63",
+        "total_bankroll": "539341575",
+        "avg_bankroll": 4948088,
+        "address": "0x11b27367a97b59d872ee17ca9fbbf94bccd07883",
+        "battle_limit_usdc": 5
+      },
+      {
+        "agent_address": "0x702335eb81a9e1acba7ea0a1336c21381e527434",
+        "agent_name": "MakeAgentsGreatAgain",
+        "total_pnl": "-125771054",
+        "total_share": "10079930",
+        "battles": "99",
+        "wins": "39",
+        "losses": "60",
+        "total_bankroll": "1980000000",
+        "avg_bankroll": 20000000,
+        "address": "0x702335eb81a9e1acba7ea0a1336c21381e527434",
+        "battle_limit_usdc": 20
+      }
+    ]
+  },
+  "_built_at": "2026-07-01T10:37:31.030Z"
+}

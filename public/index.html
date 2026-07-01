@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BID Protocol MM</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; color: #d4d4d4; font-family: -apple-system, system-ui, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 16px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+  .built { font-size: 11px; color: #444; margin-bottom: 32px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th { text-align: left; padding: 8px 12px; color: #555; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #1e1e2e; }
+  th.r { text-align: right; }
+  td { padding: 10px 12px; border-bottom: 1px solid #1e1e2e; }
+  td.r { text-align: right; }
+  tr.acct td { font-weight: 600; color: #fff; background: #12121a; }
+  tr.total td { font-weight: 700; color: #fff; border-top: 2px solid #333; }
+  tr.agent td { color: #888; font-size: 12px; }
+  .pos { color: #22c55e; }
+  .neg { color: #ef4444; }
+  .mono { font-family: 'SF Mono', monospace; font-size: 11px; color: #555; }
+  .addr { font-size: 10px; color: #444; font-family: 'SF Mono', monospace; display: block; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>BID Protocol <span style="color:#666;font-weight:400">MM Dashboard</span></h1>
+  <div class="built" id="built"></div>
+  <table>
+    <thead><tr>
+      <th>Name</th>
+      <th class="r">Start</th>
+      <th class="r">Current</th>
+      <th class="r">P&L</th>
+      <th class="r">%</th>
+      <th class="r">Battles</th>
+      <th class="r">W/L</th>
+      <th class="r">Budget</th>
+    </tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+</div>
+<script>
+const fmt = v => (v / 1e6).toFixed(2);
+const sign = v => (v >= 0 ? '+' : '') + fmt(v);
+const cls = v => v >= 0 ? 'pos' : 'neg';
+const pct = (d, b) => b ? (d / b * 100).toFixed(1) + '%' : '-';
+const short = a => a.slice(0, 6) + '...' + a.slice(-4);
+
+async function load() {
+  const data = await (await fetch('data.json')).json();
+  document.getElementById('built').textContent = 'Last updated: ' + new Date(data._built_at).toLocaleString();
+
+  const accts = Object.entries(data).filter(([k]) => k !== '_built_at');
+  let totalStart = 0, totalCur = 0, totalBattles = 0, totalWins = 0, totalLosses = 0;
+  let html = '';
+
+  for (const [name, acct] of accts) {
+    const delta = acct.current_balance - acct.start_balance;
+    const battles = acct.agents.reduce((s, a) => s + parseInt(a.battles), 0);
+    const wins = acct.agents.reduce((s, a) => s + parseInt(a.wins), 0);
+    const losses = acct.agents.reduce((s, a) => s + parseInt(a.losses), 0);
+    totalStart += acct.start_balance;
+    totalCur += acct.current_balance;
+    totalBattles += battles;
+    totalWins += wins;
+    totalLosses += losses;
+
+    html += `<tr class="acct">
+      <td>${name}<span class="addr">${acct.wallet}</span></td>
+      <td class="r">${fmt(acct.start_balance)}</td>
+      <td class="r">${fmt(acct.current_balance)}</td>
+      <td class="r ${cls(delta)}">${sign(delta)}</td>
+      <td class="r ${cls(delta)}">${pct(delta, acct.start_balance)}</td>
+      <td class="r">${battles}</td>
+      <td class="r">${wins}/${losses}</td>
+      <td class="r"></td>
+    </tr>`;
+
+    for (const ag of acct.agents) {
+      const pnl = parseInt(ag.total_pnl);
+      const share = parseInt(ag.total_share || 0);
+      const net = pnl + share;
+      const avgB = parseInt(ag.avg_bankroll);
+      const limit = ag.battle_limit_usdc;
+
+      html += `<tr class="agent">
+        <td style="padding-left:24px">${ag.agent_name}<span class="addr">${ag.address}</span></td>
+        <td class="r"></td>
+        <td class="r"></td>
+        <td class="r ${cls(net)}">${sign(net)}</td>
+        <td class="r mono">${sign(pnl)} pnl<br>${sign(share)} dist</td>
+        <td class="r">${ag.battles}</td>
+        <td class="r">${ag.wins}/${ag.losses}</td>
+        <td class="r">${limit} / ${fmt(avgB)} avg</td>
+      </tr>`;
+    }
+  }
+
+  const td = totalCur - totalStart;
+  html += `<tr class="total">
+    <td>Total</td>
+    <td class="r">${fmt(totalStart)}</td>
+    <td class="r">${fmt(totalCur)}</td>
+    <td class="r ${cls(td)}">${sign(td)}</td>
+    <td class="r ${cls(td)}">${pct(td, totalStart)}</td>
+    <td class="r">${totalBattles}</td>
+    <td class="r">${totalWins}/${totalLosses}</td>
+    <td class="r"></td>
+  </tr>`;
+
+  document.getElementById('body').innerHTML = html;
+}
+
+load();
+</script>
+</body>
+</html>
